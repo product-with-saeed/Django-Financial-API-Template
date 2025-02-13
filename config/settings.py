@@ -30,9 +30,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third-party apps
     "rest_framework",
     "rest_framework_simplejwt",
-    "api",  # Register the transactions app
+    "drf_yasg",
+    # Local apps
+    "api",
 ]
 
 MIDDLEWARE = [
