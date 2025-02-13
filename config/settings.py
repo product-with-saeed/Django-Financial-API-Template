@@ -3,10 +3,22 @@ Django settings for configuring the Financial API.
 Includes settings for JWT authentication.
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = "/static/"
+
+# Define a STATIC_ROOT for production (collectstatic will use this directory)
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# Enable static file directories for development
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # You can store static files here
+]
 
 
 # Quick-start development settings - unsuitable for production
