@@ -10,7 +10,7 @@ A modular and scalable Django REST API for **financial data management, transact
 
 ## 🔧 Installation
 ```bash
-git clone https://github.com/saeed-m-1978/Django-Financial-API-Template.git
+git clone https://github.com/product-with-saeed/Django-Financial-API-Template.git
 cd Django-Financial-API-Template
 pip install -r requirements.txt
 python manage.py migrate
