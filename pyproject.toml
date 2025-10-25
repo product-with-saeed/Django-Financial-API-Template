@@ -101,6 +101,11 @@ module = "api.tests"
 # Test files can be less strict
 disable_error_code = ["attr-defined"]
 
+[[tool.mypy.overrides]]
+module = "tests.*"
+# Test files can be less strict with Django dynamic attributes
+disable_error_code = ["attr-defined", "unused-ignore"]
+
 # ============================================================================
 # PYTEST - Testing Framework
 # ============================================================================

@@ -1,0 +1,29 @@
+[run]
+source = api,config
+omit =
+    */migrations/*
+    tests/*
+    */test_*.py
+    */__pycache__/*
+    */venv/*
+    manage.py
+    config/asgi.py
+    config/wsgi.py
+    api/tests.py
+
+[report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    class .*\bProtocol\):
+    @(abc\.)?abstractmethod
+
+[html]
+directory = htmlcov
