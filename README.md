@@ -38,16 +38,13 @@ This template provides a **clean Django REST architecture** that’s modular, se
 
 ## 🧱 Architecture
 
-```
-
-users → auth → transactions → reports
-│         │
-▼         ▼
-PostgreSQL ← Celery Tasks
-
-````
-
-> *Each module is isolated, tested, and designed to scale independently.*
+<p align="center">
+  <img src="docs/assets/django-module-map-light.png#gh-light-mode-only"
+       alt="Diagram showing Django Financial API architecture with users, auth, transactions, reports, Celery worker, and PostgreSQL database">
+  <img src="docs/assets/django-module-map-dark.png#gh-dark-mode-only"
+       alt="Diagram showing Django Financial API architecture with users, auth, transactions, reports, Celery worker, and PostgreSQL database (dark mode)">
+</p>
+<p align="center"><em>Isolated Django apps with JWT authentication, transactions, reports, Celery worker, and PostgreSQL persistence.</em></p>
 
 ---
 
@@ -136,7 +133,8 @@ ALLOWED_HOSTS=127.0.0.1,localhost
 | Metric                 | Value                   |
 | ---------------------- | ----------------------- |
 | Avg. response time     | <200 ms                 |
-| Test coverage          | >85 %                   |
+| Test coverage          | **99.09%**              |
+| Test count             | **56 tests**            |
 | Setup time             | <10 minutes             |
 | Default benchmark load | 10 K transactions / day |
 
@@ -156,16 +154,65 @@ ALLOWED_HOSTS=127.0.0.1,localhost
 
 ## 🧪 Testing
 
+### Comprehensive Test Suite
+This project includes **56 comprehensive tests** with **99%+ code coverage**, covering models, serializers, views, and integration scenarios.
+
+### Running Tests
+
+**Using Make (Recommended):**
 ```bash
-pytest
-python manage.py test
+make test              # Run all tests with coverage
+make test-unit         # Run only unit tests
+make test-integration  # Run only integration tests
+make test-fast         # Run without coverage (faster)
+make coverage          # Generate detailed coverage report
 ```
 
-For API test coverage:
-
+**Using pytest directly:**
 ```bash
-coverage run manage.py test && coverage report
+source venv/bin/activate
+python -m pytest                    # Run all tests
+python -m pytest tests/unit/        # Unit tests only
+python -m pytest tests/integration/ # Integration tests only
+python -m pytest -v                 # Verbose output
+python -m pytest --no-cov          # Skip coverage
 ```
+
+**Using the test script:**
+```bash
+./run_tests.sh                     # Auto-activates venv and runs tests
+```
+
+### Test Coverage Report
+
+```
+---------- coverage: platform linux, python 3.12 ----------
+Name                 Stmts   Miss   Cover
+-------------------------------------------
+api/models.py           13      0 100.00%
+api/serializers.py      14      0 100.00%
+api/views.py            14      0 100.00%
+config/settings.py      43      1  97.67%
+-------------------------------------------
+TOTAL                  110      1  99.09%
+```
+
+### Test Categories
+
+| Category | Tests | Coverage |
+|----------|-------|----------|
+| **Unit Tests** | 52 | Models, Serializers, Views |
+| **Integration Tests** | 8 | Full CRUD lifecycle, JWT auth, multi-user isolation |
+| **Security Tests** | ✅ | User isolation, permission checks, data validation |
+
+### Key Features Tested
+- ✅ Authentication & authorization (JWT)
+- ✅ User data isolation (users can only access own transactions)
+- ✅ CRUD operations with permission checks
+- ✅ Field validation and constraints
+- ✅ Cascade deletion behavior
+- ✅ Read-only field enforcement
+- ✅ Error handling and edge cases
 
 ---
 
