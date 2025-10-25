@@ -1,0 +1,35 @@
+# ============================================================================
+# Base Requirements - Production Dependencies
+# ============================================================================
+# Install: pip install -r requirements/base.txt
+
+# Django Framework
+Django==4.2.19
+
+# Django REST Framework
+djangorestframework==3.15.2
+
+# JWT Authentication
+djangorestframework-simplejwt==5.4.0
+PyJWT==2.10.1
+
+# API Documentation
+drf-yasg==1.21.8
+inflection==0.5.1
+uritemplate==4.1.1
+PyYAML==6.0.2
+
+# Database
+psycopg2-binary==2.9.10  # PostgreSQL adapter
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# Utilities
+packaging==24.2
+sqlparse==0.5.3
+pytz==2025.1
+tzdata==2025.1
+
+# ASGI Server
+asgiref==3.8.1

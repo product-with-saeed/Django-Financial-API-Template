@@ -1,0 +1,48 @@
+# ============================================================================
+# Development Requirements
+# ============================================================================
+# Install: pip install -r requirements/development.txt
+# This automatically includes base.txt
+
+-r base.txt
+
+# Code Formatting
+black==24.1.1
+isort==5.13.2
+
+# Linting
+flake8==7.0.0
+flake8-docstrings==1.7.0
+flake8-bugbear==24.1.17
+flake8-comprehensions==3.14.0
+flake8-simplify==0.21.0
+
+# Type Checking
+mypy==1.8.0
+django-stubs==4.2.7
+djangorestframework-stubs==3.14.5
+types-pytz==2024.1.0.20240203
+
+# Security
+bandit[toml]==1.7.6
+
+# Code Quality
+radon==6.0.1
+pylint==3.0.3
+pylint-django==2.5.5
+
+# Pre-commit Hooks
+pre-commit==3.6.0
+
+# Django Extensions
+django-extensions==3.2.3
+Werkzeug==3.0.1  # For runserver_plus
+
+# Django Debug Toolbar
+django-debug-toolbar==4.2.0
+
+# IPython for better shell
+ipython==8.20.0
+
+# Code upgrade tools
+pyupgrade==3.15.0

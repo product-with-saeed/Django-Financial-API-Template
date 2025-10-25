@@ -1,0 +1,43 @@
+# ============================================================================
+# Production Requirements
+# ============================================================================
+# Install: pip install -r requirements/production.txt
+# This automatically includes base.txt
+
+-r base.txt
+
+# Production WSGI/ASGI Server
+gunicorn==21.2.0
+uvicorn[standard]==0.27.0  # For async support
+
+# CORS Headers
+django-cors-headers==4.3.1
+
+# Security
+django-csp==3.8  # Content Security Policy
+django-ratelimit==4.1.0  # Rate limiting
+
+# Caching (Redis)
+django-redis==5.4.0
+redis==5.0.1
+hiredis==2.3.2  # C parser for Redis
+
+# Celery (Async Tasks)
+celery[redis]==5.3.6
+celery-redbeat==2.2.0  # Redis-based scheduler
+
+# Monitoring & Logging
+sentry-sdk==1.40.0
+python-json-logger==2.0.7
+
+# Environment
+django-environ==0.11.2
+
+# Performance
+django-querycount==0.8.3  # Query counting middleware
+
+# Static Files
+whitenoise==6.6.0  # Static file serving
+
+# Database Connection Pooling
+psycopg2-pool==1.1
