@@ -1,0 +1,34 @@
+%%{init: {
+  "theme": "neutral",
+  "themeVariables": {
+    "primaryColor": "#2563EB",
+    "primaryTextColor": "#ffffff",
+    "primaryBorderColor": "#2563EB",
+    "lineColor": "#6B7280",
+    "secondaryColor": "#1E293B",
+    "tertiaryColor": "#E5E7EB",
+    "edgeLabelBackground": "#F1F5F9",
+    "fontSize": "14px",
+    "fontFamily": "Inter, sans-serif"
+  }
+}}%%
+flowchart TB
+    subgraph API_Layer["API Layer"]
+        U["👤 Users"] --> A["🔐 Auth / JWT"]
+        A --> T["💳 Transactions API"]
+        A --> R["📊 Reports API"]
+    end
+
+    T -->|Write Ops| DB["🗄️ PostgreSQL"]
+    R -->|Read Ops| DB
+    T -.->|Async Tasks| C["⚙️ Celery Worker"]
+    C -->|Process Queues| DB
+
+    classDef default fill:#F9FAFB,stroke:#CBD5E1,stroke-width:1px,color:#111827;
+    classDef api fill:#2563EB,stroke:#2563EB,color:#ffffff;
+    classDef db fill:#1E3A8A,stroke:#1E3A8A,color:#ffffff;
+    classDef async fill:#0F766E,stroke:#0F766E,color:#ffffff;
+
+    class U,A,T,R api;
+    class DB db;
+    class C async;
