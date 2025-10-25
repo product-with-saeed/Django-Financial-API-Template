@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Django Financial API"
+    }
+  ],
+  "settings": {
+    // This workspace file provides additional organization
+    // All settings are in .vscode/settings.json
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [],
+    "compounds": [
+      {
+        "name": "Django: Server + Debug Tests",
+        "configurations": [
+          "Django: Run Server",
+          "Python: Debug Tests"
+        ],
+        "stopAll": true,
+        "presentation": {
+          "hidden": false,
+          "group": "Compound",
+          "order": 1
+        }
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": []
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "batisteo.vscode-django"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 # Claude Code configuration
 .claude/
 
+# VS Code configuration (user-specific settings)
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -3,8 +3,6 @@ URL routing for the Financial API.
 Defines API endpoints for managing transactions.
 """
 
-from typing import Any
-
 from django.urls import URLPattern, URLResolver, include, path
 
 from rest_framework.routers import DefaultRouter
