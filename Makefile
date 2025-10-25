@@ -76,32 +76,32 @@ collectstatic: ## Collect static files
 
 test: ## Run tests with coverage
 	@echo "$(BLUE)Running tests with coverage...$(NC)"
-	pytest
+	$(PYTHON) -m pytest
 	@echo "$(GREEN)✓ Tests completed$(NC)"
 
 test-unit: ## Run unit tests only
 	@echo "$(BLUE)Running unit tests...$(NC)"
-	pytest -m unit
+	$(PYTHON) -m pytest -m unit
 	@echo "$(GREEN)✓ Unit tests completed$(NC)"
 
 test-integration: ## Run integration tests only
 	@echo "$(BLUE)Running integration tests...$(NC)"
-	pytest -m integration
+	$(PYTHON) -m pytest -m integration
 	@echo "$(GREEN)✓ Integration tests completed$(NC)"
 
 test-fast: ## Run tests without coverage (faster)
 	@echo "$(BLUE)Running fast tests...$(NC)"
-	pytest --no-cov
+	$(PYTHON) -m pytest --no-cov
 	@echo "$(GREEN)✓ Fast tests completed$(NC)"
 
 test-verbose: ## Run tests with verbose output
 	@echo "$(BLUE)Running verbose tests...$(NC)"
-	pytest -vv
+	$(PYTHON) -m pytest -vv
 	@echo "$(GREEN)✓ Verbose tests completed$(NC)"
 
 coverage: ## Generate coverage report
 	@echo "$(BLUE)Generating coverage report...$(NC)"
-	pytest --cov-report=html --cov-report=term
+	$(PYTHON) -m pytest --cov-report=html --cov-report=term
 	@echo "$(GREEN)✓ Coverage report generated at htmlcov/index.html$(NC)"
 
 coverage-open: coverage ## Generate and open coverage report in browser
@@ -112,37 +112,37 @@ coverage-open: coverage ## Generate and open coverage report in browser
 
 lint: ## Run all linters (flake8, mypy, bandit)
 	@echo "$(BLUE)Running flake8...$(NC)"
-	flake8 api config --config=.flake8
+	$(PYTHON) -m flake8 api config --config=.flake8
 	@echo "$(GREEN)✓ flake8 passed$(NC)"
 	@echo "$(BLUE)Running mypy...$(NC)"
-	mypy api config --config-file=pyproject.toml || true
+	$(PYTHON) -m mypy api config --config-file=pyproject.toml || true
 	@echo "$(GREEN)✓ mypy completed$(NC)"
 	@echo "$(BLUE)Running bandit...$(NC)"
-	bandit -c pyproject.toml -r api config || true
+	$(PYTHON) -m bandit -c pyproject.toml -r api config || true
 	@echo "$(GREEN)✓ All linters completed$(NC)"
 
 format: ## Format code with black and isort
 	@echo "$(BLUE)Formatting code with black...$(NC)"
-	black api config --config=pyproject.toml
+	$(PYTHON) -m black api config --config=pyproject.toml
 	@echo "$(GREEN)✓ black formatting completed$(NC)"
 	@echo "$(BLUE)Sorting imports with isort...$(NC)"
-	isort api config --settings-path=pyproject.toml
+	$(PYTHON) -m isort api config --settings-path=pyproject.toml
 	@echo "$(GREEN)✓ isort completed$(NC)"
 
 format-check: ## Check code formatting without changes
 	@echo "$(BLUE)Checking code formatting...$(NC)"
-	black --check api config --config=pyproject.toml
-	isort --check-only api config --settings-path=pyproject.toml
+	$(PYTHON) -m black --check api config --config=pyproject.toml
+	$(PYTHON) -m isort --check-only api config --settings-path=pyproject.toml
 	@echo "$(GREEN)✓ Format check completed$(NC)"
 
 type-check: ## Run mypy type checking
 	@echo "$(BLUE)Running mypy type checking...$(NC)"
-	mypy api config --config-file=pyproject.toml
+	$(PYTHON) -m mypy api config --config-file=pyproject.toml
 	@echo "$(GREEN)✓ Type checking completed$(NC)"
 
 security: ## Run security checks with bandit
 	@echo "$(BLUE)Running security scan with bandit...$(NC)"
-	bandit -c pyproject.toml -r api config
+	$(PYTHON) -m bandit -c pyproject.toml -r api config
 	@echo "$(GREEN)✓ Security scan completed$(NC)"
 
 complexity: ## Check code complexity with radon
