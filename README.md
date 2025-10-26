@@ -1,6 +1,6 @@
 # 💰 Django Financial API Template
 
-> **Production-ready Django REST Framework backend for FinTech and analytics applications.**  
+> **Production-ready Django REST Framework backend for FinTech and analytics applications.**
 > Designed by [**Saeed Mohammadpour**](https://github.com/product-with-saeed) to help teams launch **secure, modular, and audit-ready** transaction systems in days — not weeks.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
@@ -13,13 +13,13 @@
 ---
 
 ## 🧭 Overview
-Most FinTech backends struggle with unstructured data, missing audit trails, and inconsistent authentication.  
+Most FinTech backends struggle with unstructured data, missing audit trails, and inconsistent authentication.
 This template provides a **clean Django REST architecture** that’s modular, secure, and instantly usable for real products or investor demos.
 
 ### Perfect for
-- Bootstrapping **FinTech MVPs** or compliance demos  
-- Learning **enterprise-grade Django project structure**  
-- Extending for **SaaS financial tracking or analytics tools**  
+- Bootstrapping **FinTech MVPs** or compliance demos
+- Learning **enterprise-grade Django project structure**
+- Extending for **SaaS financial tracking or analytics tools**
 - Teaching API design and modular architecture
 
 ---
@@ -45,6 +45,15 @@ This template provides a **clean Django REST architecture** that’s modular, se
        alt="Diagram showing Django Financial API architecture with users, auth, transactions, reports, Celery worker, and PostgreSQL database (dark mode)">
 </p>
 <p align="center"><em>Isolated Django apps with JWT authentication, transactions, reports, Celery worker, and PostgreSQL persistence.</em></p>
+
+---
+
+### 📚 API Documentation Preview
+
+<p align="center">
+  <img src="docs/assets/swagger-preview.png" alt="Swagger UI showing JWT Authorize and financial transaction endpoints">
+</p>
+<p align="center"><em>Live Swagger UI with JWT authentication and interactive endpoints.</em></p>
 
 ---
 
